@@ -1,0 +1,22 @@
+# Archivos del sistema operativo (Mac y Windows)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Configuración del editor (VS Code / Sublime)
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosql
+*.sln
+*.swp
+
+# Archivos de registro y temporales
+*.log
+*.tmp
+*.temp
+
+# Archivos de entorno y credenciales (por si en el futuro usas variables secretas)
+.env
+.env.local

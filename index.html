@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger League | 90 Minutos de Gloria</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stadium: '#08080a',
+                        cardDark: '#121216',
+                        goldNeon: '#ffcc00',
+                        redNeon: '#e50914',
+                        greenWa: '#25d366',
+                    },
+                    fontFamily: {
+                        display: ['Teko', 'sans-serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #08080a;
+            color: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Efectos de Brillo Neón */
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.25);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.5);
+        }
+
+        .red-glow-title {
+            text-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+        }
+
+        .text-gold-neon {
+            color: #ffcc00;
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+        }
+
+        /* Fondo de Estadio Noche */
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(8,8,10,0.7) 0%, rgba(8,8,10,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+        }
+
+        /* Animación suave para tarjetas */
+        .card-stadium {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-stadium:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 204, 0, 0.6);
+        }
+
+        /* Animación del botón WhatsApp */
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+        }
+        .btn-pulse {
+            animation: pulse-green 2s infinite;
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e50914;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-goldNeon selection:text-black">
+
+    <!-- NAVBAR RESPONSIVA -->
+    <nav class="sticky top-0 z-50 bg-stadium/90 backdrop-blur-md border-b-2 border-goldNeon px-4 py-3">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-3xl">⚽</span>
+                <span class="font-display text-3xl font-bold uppercase tracking-wider text-white">
+                    BURGER <span class="text-goldNeon">LEAGUE</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 font-semibold text-sm uppercase">
+                <a href="#entradas" class="hover:text-goldNeon transition">Entradas</a>
+                <a href="#hamburguesas" class="hover:text-goldNeon transition">Hamburguesas</a>
+                <a href="#papas" class="hover:text-goldNeon transition">Papas Goleadoras</a>
+                <a href="#redes" class="hover:text-goldNeon transition text-redNeon flex items-center gap-1">
+                    <i class="fa-solid fa-fire"></i> Redes Sociales
+                </a>
+            </div>
+            <a href="#hamburguesas" class="bg-goldNeon text-black font-bold px-4 py-2 rounded-lg text-sm font-display tracking-wider hover:bg-yellow-400 transition gold-glow">
+                VER MENÚ
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-bg py-20 px-4 text-center relative overflow-hidden border-b border-redNeon/30">
+        <div class="max-w-3xl mx-auto relative z-10 space-y-4">
+            <span class="inline-block bg-redNeon/20 text-redNeon border border-redNeon px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                🏆 La Catedral del Sabor
+            </span>
+            <h1 class="font-display text-6xl md:text-8xl font-black uppercase text-white leading-none tracking-wide red-glow-title">
+                90 Minutos De <span class="text-gold-neon">Gloria</span>
+            </h1>
+            <p class="text-gray-300 text-base md:text-lg max-w-xl mx-auto font-light">
+                Hamburguesas artesanales de alto rendimiento, bondiolas épicas y papas goleadoras para celebrar cada partido.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Burger%20League" target="_blank" 
+                   class="btn-pulse bg-greenWa hover:bg-green-600 text-white font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-3 text-lg transition shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> PEDIR DIRECTO A WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENIDO DEL MENÚ -->
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
+
+        <!-- CATEGORÍA: ENTRADAS -->
+        <section id="entradas">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="text-2xl text-goldNeon">★</span>
+                <h2 class="font-display text-4xl font-bold uppercase text-white border-l-4 border-redNeon pl-3">
+                    Entradas <span class="text-gray-500 text-2xl font-sans font-normal">(Para Calentar)</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl text-white">Tres Arepitas</h3>
+                            <span class="text-goldNeon font-bold text-lg">$11.000</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Arepitas artesanales con bondiola desmechada, guacamole fresco, pico de gallo y queso rallado.</p>
+                    </div>
+                    <button onclick="orderItem('Tres Arepitas', '$11.000')" class="w-full bg-white/5 hover:bg-greenWa/20 hover:text-greenWa text-gray-300 font-semibold py-2.5 rounded-xl border border-white/10 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp"></i> Pedir Entrante
+                    </button>
+                </div>
+                <!-- Card 2 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl text-white">Aros de Cebolla</h3>
+                            <span class="text-goldNeon font-bold text-lg">$9.000</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Cinco aros crocantes dorados a la perfección con salsa especial de la casa.</p>
+                    </div>
+                    <button onclick="orderItem('Aros de Cebolla', '$9.000')" class="w-full bg-white/5 hover:bg-greenWa/20 hover:text-greenWa text-gray-300 font-semibold py-2.5 rounded-xl border border-white/10 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp"></i> Pedir Entrante
+                    </button>
+                </div>
+                <!-- Card 3 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-xl text-white">Dedos de Queso</h3>
+                            <span class="text-goldNeon font-bold text-lg">$10.000</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Cinco bastones de queso apanados y derretidos por dentro, acompañados con mermelada dulce de mora.</p>
+                    </div>
+                    <button onclick="orderItem('Dedos de Queso', '$10.000')" class="w-full bg-white/5 hover:bg-greenWa/20 hover:text-greenWa text-gray-300 font-semibold py-2.5 rounded-xl border border-white/10 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp"></i> Pedir Entrante
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: HAMBURGUESAS -->
+        <section id="hamburguesas">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="text-2xl text-goldNeon">⚽</span>
+                <h2 class="font-display text-4xl font-bold uppercase text-white border-l-4 border-goldNeon pl-3">
+                    Hamburguesas Titulares
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Campin -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">Campín (Clásica)</h3>
+                            <span class="text-xs font-bold uppercase px-2 py-1 bg-redNeon/20 text-redNeon rounded">Favorita</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan suave, carne 100% de res, tocineta crocante, queso mozzarella, cebolla caramelizada, tomate, lechuga y salsa secreta.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$17.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO (+Papas)</span><span class="text-goldNeon font-bold text-sm">$26.000</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('Campín Clásica', 'Sola', '$17.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('Campín Clásica', 'Combo', '$26.000')" class="bg-goldNeon/20 hover:bg-goldNeon hover:text-black text-goldNeon text-xs font-bold py-2 rounded-lg transition border border-goldNeon/30">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metropolitano -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">Metropolitano</h3>
+                            <span class="text-xs font-bold uppercase px-2 py-1 bg-goldNeon/20 text-goldNeon rounded">Especialidad</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan, carne, plátano maduro, tocineta, queso costeño a la parrilla, queso crema americano, mermelada de tocino, suero costeño y vegetales.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$26.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO</span><span class="text-goldNeon font-bold text-sm">$34.500</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('Metropolitano', 'Sola', '$26.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('Metropolitano', 'Combo', '$34.500')" class="bg-goldNeon/20 hover:bg-goldNeon hover:text-black text-goldNeon text-xs font-bold py-2 rounded-lg transition border border-goldNeon/30">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atanasio -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">Atanasio</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan, bondiola desmechada jugosa, chicharrón crocante, doble cheddar, queso crema americano, tocineta y salsa BBQ de la casa.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$24.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO</span><span class="text-goldNeon font-bold text-sm">$32.500</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('Atanasio', 'Sola', '$24.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('Atanasio', 'Combo', '$32.500')" class="bg-goldNeon/20 hover:bg-goldNeon hover:text-black text-goldNeon text-xs font-bold py-2 rounded-lg transition border border-goldNeon/30">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Madison Smash -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between border-goldNeon/40">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">Madison Smash</h3>
+                            <span class="text-xs font-bold uppercase px-2 py-1 bg-yellow-500 text-black rounded font-display">TOP SELLER</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan brioche, doble carne smash con cebolla grillé, pepinillo agridulce, doble cheddar, doble tocineta, queso crema americano y tomate.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$29.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO</span><span class="text-goldNeon font-bold text-sm">$37.500</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('Madison Smash', 'Sola', '$29.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('Madison Smash', 'Combo', '$37.500')" class="bg-goldNeon hover:bg-yellow-400 text-black text-xs font-bold py-2 rounded-lg transition shadow-md">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Santiago Bernabéu -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">Santiago Bernabéu</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan, carne, mozzarella, tocineta, chorizo vela, jamón serrano, cebolla grillé, tomate, queso crema y salsa artesanal.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$26.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO</span><span class="text-goldNeon font-bold text-sm">$34.500</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('Santiago Bernabéu', 'Sola', '$26.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('Santiago Bernabéu', 'Combo', '$34.500')" class="bg-goldNeon/20 hover:bg-goldNeon hover:text-black text-goldNeon text-xs font-bold py-2 rounded-lg transition border border-goldNeon/30">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La Bombonera -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-2xl text-white">La Bombonera</h3>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pan, carne, mozarella, cebolla caramelizada, tocineta, chorizo, pico de gallo fresco, chimichurri argentino, tomate y lechuga.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-2 gap-2 bg-black/40 p-2 rounded-xl text-xs text-center border border-white/5">
+                            <div><span class="block text-gray-500">SOLA</span><span class="text-white font-bold text-sm">$21.000</span></div>
+                            <div class="border-l border-white/10"><span class="block text-goldNeon">COMBO</span><span class="text-goldNeon font-bold text-sm">$29.500</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="orderBurger('La Bombonera', 'Sola', '$21.000')" class="bg-white/5 hover:bg-white/10 text-white text-xs font-semibold py-2 rounded-lg transition border border-white/10">Pedir Sola</button>
+                            <button onclick="orderBurger('La Bombonera', 'Combo', '$29.500')" class="bg-goldNeon/20 hover:bg-goldNeon hover:text-black text-goldNeon text-xs font-bold py-2 rounded-lg transition border border-goldNeon/30">Pedir Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORÍA: PAPAS GOLEADORAS -->
+        <section id="papas">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="text-2xl text-goldNeon">🍟</span>
+                <h2 class="font-display text-4xl font-bold uppercase text-white border-l-4 border-redNeon pl-3">
+                    Papas Goleadoras <span class="text-gray-500 text-2xl font-sans font-normal">(Especiales)</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Papa 1 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-2xl text-white mb-2">Fuera de Lugar</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Base de papas francesas, salchicha, carne desmechada ropa vieja, tocineta, plátano maduro, guacamole, cebolla caramelizada y queso rallado.</p>
+                    </div>
+                    <div>
+                        <span class="text-goldNeon font-bold text-xl block mb-3">$26.000</span>
+                        <button onclick="orderItem('Papas Fuera de Lugar', '$26.000')" class="w-full bg-greenWa hover:bg-green-600 text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                            <i class="fa-brands fa-whatsapp"></i> Pedir Papas
+                        </button>
+                    </div>
+                </div>
+                <!-- Papa 2 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-2xl text-white mb-2">Tercer Tiempo</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Base de papas, salchicha, salsa especial, queso cheddar melted, mozzarella, tocineta, jalapeños picantes, chorizo y pico de gallo.</p>
+                    </div>
+                    <div>
+                        <span class="text-goldNeon font-bold text-xl block mb-3">$21.000</span>
+                        <button onclick="orderItem('Papas Tercer Tiempo', '$21.000')" class="w-full bg-greenWa hover:bg-green-600 text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                            <i class="fa-brands fa-whatsapp"></i> Pedir Papas
+                        </button>
+                    </div>
+                </div>
+                <!-- Papa 3 -->
+                <div class="card-stadium bg-cardDark rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-2xl text-white mb-2">La Popular</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Base papas francesas, salchicha premium, queso rallado, bondiola desmechada jugosa, salsa BBQ, pico de gallo y tocineta en trozos.</p>
+                    </div>
+                    <div>
+                        <span class="text-goldNeon font-bold text-xl block mb-3">$24.000</span>
+                        <button onclick="orderItem('Papas La Popular', '$24.000')" class="w-full bg-greenWa hover:bg-green-600 text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                            <i class="fa-brands fa-whatsapp"></i> Pedir Papas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APARTADO ESPECIAL: REDES SOCIALES E INTERACCIÓN -->
+        <section id="redes" class="bg-gradient-to-b from-cardDark to-stadium p-8 md:p-12 rounded-3xl border border-goldNeon/30 space-y-8 relative overflow-hidden">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="inline-block bg-goldNeon/10 text-goldNeon border border-goldNeon/30 px-3 py-1 rounded-full text-xs font-bold uppercase">
+                    📸 COMUNIDAD Y AMBIENTE
+                </span>
+                <h2 class="font-display text-5xl font-black uppercase text-white">
+                    Sigue La <span class="text-goldNeon">Pasión</span> En Redes
+                </h2>
+                <p class="text-gray-400 text-sm">
+                    Sube tu foto disfrutando el partido con tu hamburguesa, etiquétanos a <span class="text-white font-bold">@BurgerLeagueOficial</span> y aparece en nuestras pantallas.
+                </p>
+            </div>
+
+            <!-- FEED INTERACTIVO SIMULADO DE INSTAGRAM / TIKTOK -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Feed Item 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-square border border-white/10 bg-black/50">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-4 flex flex-col justify-end">
+                        <span class="text-goldNeon font-bold text-xs flex items-center gap-1"><i class="fa-brands fa-instagram"></i> @burgerleague</span>
+                        <p class="text-white text-xs font-light">"La Madison Smash no falla en la Champions 🍔🔥"</p>
+                    </div>
+                </div>
+
+                <!-- Feed Item 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-square border border-white/10 bg-black/50">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Matchday" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-4 flex flex-col justify-end">
+                        <span class="text-redNeon font-bold text-xs flex items-center gap-1"><i class="fa-brands fa-tiktok"></i> @burgerleague</span>
+                        <p class="text-white text-xs font-light">"Chicharrón crocante en la Atanasio 🤤"</p>
+                    </div>
+                </div>
+
+                <!-- Feed Item 3 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-square border border-white/10 bg-black/50">
+                    <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80" alt="Fries" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-4 flex flex-col justify-end">
+                        <span class="text-goldNeon font-bold text-xs flex items-center gap-1"><i class="fa-brands fa-instagram"></i> @burgerleague</span>
+                        <p class="text-white text-xs font-light">"Papas Fuera de Lugar = Partido ganado 🍟"</p>
+                    </div>
+                </div>
+
+                <!-- Feed Item 4 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-square border border-white/10 bg-black/50">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="Burger Night" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-4 flex flex-col justify-end">
+                        <span class="text-blue-400 font-bold text-xs flex items-center gap-1"><i class="fa-brands fa-facebook"></i> Burger League Oficial</span>
+                        <p class="text-white text-xs font-light">"Viviendo la previa en la Catedral 🏆"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTONES DIRECTOS A REDES -->
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="https://instagram.com" target="_blank" class="bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 hover:opacity-90 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 text-sm shadow-lg transition">
+                    <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                </a>
+                <a href="https://tiktok.com" target="_blank" class="bg-black hover:bg-gray-900 border border-white/20 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 text-sm shadow-lg transition">
+                    <i class="fa-brands fa-tiktok text-lg"></i> TikTok
+                </a>
+                <a href="https://facebook.com" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 text-sm shadow-lg transition">
+                    <i class="fa-brands fa-facebook text-lg"></i> Facebook
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER ESTADIO -->
+    <footer class="bg-cardDark border-t border-white/10 py-10 px-4 text-center text-gray-500 text-sm">
+        <div class="max-w-6xl mx-auto space-y-4">
+            <div class="flex justify-center items-center gap-2 text-white font-display text-2xl font-bold">
+                <span>⚽</span> BURGER LEAGUE
+            </div>
+            <p class="text-xs text-gray-400">Abiertos todos los días de 5:00 PM a 11:30 PM | Entregas a domicilio rápidas</p>
+            <p class="text-xs text-gray-600">&copy; 2026 Burger League. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT DE PEDIDOS DIRECTOS A WHATSAPP -->
+    <script>
+        const phone = "573000000000"; // Número del restaurante
+
+        function orderItem(itemName, price) {
+            const message = encodeURIComponent(`Hola Burger League! 👋 Quiero hacer un pedido:\n\n📌 *Producto:* ${itemName}\n💰 *Precio:* ${price}\n\nQuedo atento para confirmar datos de envío.`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        function orderBurger(burgerName, option, price) {
+            const message = encodeURIComponent(`Hola Burger League! 👋 Quiero hacer un pedido:\n\n🍔 *Hamburguesa:* ${burgerName}\n📦 *Presentación:* ${option}\n💰 *Precio:* ${price}\n\n¿Cuánto tarda el domicilio?`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
